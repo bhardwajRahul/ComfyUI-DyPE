@@ -1,8 +1,8 @@
 {
   "id": "908d0bfb-e192-4627-9b57-147496e6e2dd",
   "revision": 0,
-  "last_node_id": 70,
-  "last_link_id": 119,
+  "last_node_id": 105,
+  "last_link_id": 290,
   "nodes": [
     {
       "id": 40,
@@ -43,7 +43,17 @@
             "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors",
             "directory": "text_encoders"
           }
-        ]
+        ],
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "clip_name1": true,
+            "clip_name2": true,
+            "type": true,
+            "device": true
+          },
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         "clip_l.safetensors",
@@ -71,7 +81,13 @@
       "inputs": [],
       "outputs": [],
       "title": "Model links",
-      "properties": {},
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
+      },
       "widgets_values": [
         "## Model links\n\n**Diffusion Model**\n\n- [flux1-krea-dev_fp8_scaled.safetensors](https://huggingface.co/Comfy-Org/FLUX.1-Krea-dev_ComfyUI/resolve/main/split_files/diffusion_models/flux1-krea-dev_fp8_scaled.safetensors)\n\nIf you need the original weights, head to [black-forest-labs/FLUX.1-Krea-dev](https://huggingface.co/black-forest-labs/FLUX.1-Krea-dev/), accept the agreement in the repo, then click the link below to download the models:\n\n- [flux1-krea-dev.safetensors](https://huggingface.co/black-forest-labs/FLUX.1-Krea-dev/resolve/main/flux1-krea-dev.safetensors)\n\n**Text Encoder**\n\n- [clip_l.safetensors](https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/clip_l.safetensors)\n\n- [t5xxl_fp16.safetensors](https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors) or [t5xxl_fp8_e4m3fn_scaled.safetensors](https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn_scaled.safetensors)\n\n**VAE**\n\n- [ae.safetensors](https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged/resolve/main/split_files/vae/ae.safetensors)\n\n\n```\nComfyUI/\n├── models/\n│   ├── diffusion_models/\n│   │   └─── flux1-krea-dev_fp8_scaled.safetensors\n│   ├── text_encoders/\n│   │   ├── clip_l.safetensors\n│   │   └─── t5xxl_fp16.safetensors # or t5xxl_fp8_e4m3fn_scaled.safetensors\n│   └── vae/\n│       └── ae.safetensors\n```\n"
       ],
@@ -113,302 +129,20 @@
             "url": "https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged/resolve/main/split_files/vae/ae.safetensors",
             "directory": "vae"
           }
-        ]
+        ],
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "vae_name": true
+          },
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         "FLUX1\\ae.safetensors"
       ],
       "color": "#223",
       "bgcolor": "#335"
-    },
-    {
-      "id": 8,
-      "type": "VAEDecode",
-      "pos": [
-        391.97558139331176,
-        122.95473372107558
-      ],
-      "size": [
-        319.2356335124862,
-        46
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 52
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 85
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": []
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.40",
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 55,
-      "type": "VAEDecodeTiled",
-      "pos": [
-        391.97558139331176,
-        226.612614517858
-      ],
-      "size": [
-        322.89304359551966,
-        150
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 112
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 77
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            91
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.66",
-        "Node name for S&R": "VAEDecodeTiled"
-      },
-      "widgets_values": [
-        256,
-        64,
-        64,
-        8
-      ]
-    },
-    {
-      "id": 53,
-      "type": "ModelPatchTorchSettings",
-      "pos": [
-        30.020388325880088,
-        958.5302639048878
-      ],
-      "size": [
-        280,
-        58
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 71
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            73
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui-kjnodes",
-        "ver": "5dcda71011870278c35d92ff77a677ed2e538f2d",
-        "Node name for S&R": "ModelPatchTorchSettings",
-        "ue_properties": {
-          "version": "7.0.1",
-          "widget_ue_connectable": {}
-        }
-      },
-      "widgets_values": [
-        true
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 38,
-      "type": "UNETLoader",
-      "pos": [
-        -320,
-        150
-      ],
-      "size": [
-        270,
-        82
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            118
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.40",
-        "Node name for S&R": "UNETLoader",
-        "models": [
-          {
-            "name": "flux1-krea-dev_fp8_scaled.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/FLUX.1-Krea-dev_ComfyUI/resolve/main/split_files/diffusion_models/flux1-krea-dev_fp8_scaled.safetensors",
-            "directory": "diffusion_models"
-          }
-        ]
-      },
-      "widgets_values": [
-        "FLUX1\\flux1-krea-dev.safetensors",
-        "default"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 27,
-      "type": "EmptySD3LatentImage",
-      "pos": [
-        -320,
-        630
-      ],
-      "size": [
-        270,
-        120
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "slot_index": 0,
-          "links": [
-            51
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.40",
-        "Node name for S&R": "EmptySD3LatentImage"
-      },
-      "widgets_values": [
-        2048,
-        3072,
-        1
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 9,
-      "type": "SaveImage",
-      "pos": [
-        757.2214793721178,
-        123.42500709283193
-      ],
-      "size": [
-        640,
-        660
-      ],
-      "flags": {},
-      "order": 15,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 91
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.40",
-        "Node name for S&R": "SaveImage"
-      },
-      "widgets_values": [
-        "flux_krea/flux_krea"
-      ]
-    },
-    {
-      "id": 45,
-      "type": "CLIPTextEncode",
-      "pos": [
-        7.045080197257759,
-        159.16529405661166
-      ],
-      "size": [
-        330,
-        210
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 64
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            66,
-            111
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.47",
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "A muscular, bald man holds a flower above his head with both arms, set against a soft circular background in black and white."
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
     },
     {
       "id": 42,
@@ -445,124 +179,266 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.3.40",
-        "Node name for S&R": "ConditioningZeroOut"
+        "Node name for S&R": "ConditioningZeroOut",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": []
     },
     {
-      "id": 52,
-      "type": "PathchSageAttentionKJ",
+      "id": 8,
+      "type": "VAEDecode",
       "pos": [
-        30.97067656870301,
-        849.9776697194811
+        391.97558139331176,
+        122.95473372107558
       ],
       "size": [
-        280,
-        58
+        319.2356335124862,
+        46
       ],
       "flags": {
         "collapsed": false
       },
-      "order": 10,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
-          "name": "model",
-          "type": "MODEL",
-          "link": 119
+          "name": "samples",
+          "type": "LATENT",
+          "link": 52
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 85
         }
       ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "VAEDecode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 38,
+      "type": "UNETLoader",
+      "pos": [
+        -319.9999999999996,
+        154.75892789151453
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            71
+            284
           ]
         }
       ],
       "properties": {
-        "cnr_id": "comfyui-kjnodes",
-        "ver": "5dcda71011870278c35d92ff77a677ed2e538f2d",
-        "Node name for S&R": "PathchSageAttentionKJ",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "flux1-krea-dev_fp8_scaled.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/FLUX.1-Krea-dev_ComfyUI/resolve/main/split_files/diffusion_models/flux1-krea-dev_fp8_scaled.safetensors",
+            "directory": "diffusion_models"
+          }
+        ],
         "ue_properties": {
-          "version": "7.0.1",
-          "widget_ue_connectable": {}
+          "widget_ue_connectable": {
+            "unet_name": true,
+            "weight_dtype": true
+          },
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
         }
       },
       "widgets_values": [
-        "auto"
+        "FLUX1\\flux1-krea-dev.safetensors",
+        "default"
       ],
-      "color": "#432",
-      "bgcolor": "#653"
+      "color": "#223",
+      "bgcolor": "#335"
     },
     {
-      "id": 68,
-      "type": "DyPE_FLUX",
+      "id": 55,
+      "type": "VAEDecodeTiled",
       "pos": [
-        34.378266361112125,
-        592.0845558725733
+        391.97558139331176,
+        226.612614517858
       ],
       "size": [
-        273.70012497212906,
-        202
+        322.89304359551966,
+        150
       ],
       "flags": {},
-      "order": 8,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
-          "name": "model",
-          "type": "MODEL",
-          "link": 118
+          "name": "samples",
+          "type": "LATENT",
+          "link": 112
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 77
         }
       ],
       "outputs": [
         {
-          "name": "Patched Model",
-          "type": "MODEL",
+          "name": "IMAGE",
+          "type": "IMAGE",
           "links": [
-            119
+            288
           ]
         }
       ],
       "properties": {
-        "Node name for S&R": "DyPE_FLUX"
+        "cnr_id": "comfy-core",
+        "ver": "0.3.66",
+        "Node name for S&R": "VAEDecodeTiled",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "tile_size": true,
+            "overlap": true,
+            "temporal_size": true,
+            "temporal_overlap": true
+          },
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
-        1024,
-        1024,
-        "yarn",
-        true,
-        3,
-        0.1,
-        0.8
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
+        512,
+        64,
+        64,
+        8
+      ]
     },
     {
-      "id": 70,
-      "type": "Note",
+      "id": 45,
+      "type": "CLIPTextEncode",
       "pos": [
-        370.8346374838202,
-        962.8353927340362
+        7.045080197257759,
+        159.16529405661166
       ],
       "size": [
-        210,
-        88
+        330,
+        210
       ],
       "flags": {},
-      "order": 5,
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 64
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            66,
+            111
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.47",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "text": true
+          },
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "A muscular, bald man holds a flower above his head with both arms, set against a soft circular background in black and white."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 27,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        -320,
+        630
+      ],
+      "size": [
+        270,
+        120
+      ],
+      "flags": {},
+      "order": 4,
       "mode": 0,
       "inputs": [],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "DyPE width/height - Keep the values below 1024x1024; doing so won’t affect your output.\n"
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            287
+          ]
+        }
       ],
-      "color": "#322",
-      "bgcolor": "#533"
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "EmptySD3LatentImage",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "width": true,
+            "height": true,
+            "batch_size": true
+          },
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        2048,
+        3072,
+        1
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
     },
     {
       "id": 69,
@@ -576,7 +452,7 @@
         338.01057378012047
       ],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -589,7 +465,67 @@
         }
       },
       "widgets_values": [
-        "### Node Inputs\n\n*   **`model`**: The FLUX model to be patched.\n*   **`width` / `height`**: The target image resolution. **This must match the resolution set in your `Empty Latent Image` node.**\n*   **`method`**: The core position encoding extrapolation method. `yarn` is the recommended default, as it forms the basis of the paper's best-performing \"DY-YaRN\" variant.\n*   **`enable_dype`**: Enables or disables the **dynamic, time-aware** component of DyPE.\n*   **`dype_exponent`**: Controls the \"strength\" of the dynamic effect over time. This is the most important tuning parameter.\n    *   `2.0` (Exponential): Recommended for **4K+** resolutions. It's an aggressive schedule that transitions quickly.\n    *   `1.0` (Linear): A good starting point for **~2K-3K** resolutions.\n    *   `0.5` (Sub-linear): A gentler schedule that may work best for resolutions just above the model's native 1K.\n*   **`base_shift` / `max_shift`** (Advanced): Adjust only if you are an advanced user experimenting with the noise schedule.\n\n\n\n## Join\n\n### [TokenDiffusion](https://t.me/TokenDiff) - AI for every home, creativity for every mind!\n\n### [TokenDiff Community Hub](https://t.me/TokenDiff_hub) - Questions, help, and thoughtful discussion. "
+        "### Node Inputs\n\n*   **`method`**: The extrapolation strategy.\n    *   **`vision_yarn`:** Best for 4K+ and non-square images. Fixes stretching and artifacts automatically.\n    *   **`yarn` / `ntk`**: Legacy methods. Use `yarn` with `yarn_alt_scaling` for manual control.\n*   **`enable_dype`**: Toggles the dynamic (time-aware) algorithm. Keep enabled for best quality.\n*   **`dype_scale`**: Magnitude of the frequency shift. Default: `2.0`.\n*   **`dype_exponent`**: Aggressiveness of the dynamic schedule.\n    *   `2.0`: Best for **4K**.\n    *   `1.0`: Best for **2K**.\n    *   `0.5`: Best for **~1.5K**.\n*   **`yarn_alt_scaling`**: *(Legacy `yarn` only)* Switch between Anisotropic (Sharper, potential stretching) and Isotropic (Softer, accurate geometry).\n*   **`base_shift` / `max_shift`**: Advanced noise schedule controls. Defaults (`0.5` / `1.15`) are optimized for FLUX.\n\n## Join\n\n### [TokenDiffusion](https://t.me/TokenDiff) - AI for every home, creativity for every mind!\n\n### [TokenDiff Community Hub](https://t.me/TokenDiff_hub) - Questions, help, and thoughtful discussion. "
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 104,
+      "type": "SaveImage",
+      "pos": [
+        756.4546199065986,
+        123.01805911034799
+      ],
+      "size": [
+        523.3210516956581,
+        772.7459500468921
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 288
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "flux_krea/flux_krea"
+      ]
+    },
+    {
+      "id": 70,
+      "type": "Note",
+      "pos": [
+        -329.47647160109227,
+        809.6630953228047
+      ],
+      "size": [
+        302.5486358403782,
+        88
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "DyPE width/height - keep the value at 1024×1024 or higher. It does not affect the output resolution.\n\n\n"
       ],
       "color": "#322",
       "bgcolor": "#533"
@@ -602,17 +538,17 @@
         433.7293334706151
       ],
       "size": [
-        315,
-        474.00000000000006
+        319.9248663379035,
+        486
       ],
       "flags": {},
-      "order": 12,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
           "name": "model",
           "type": "MODEL",
-          "link": 73
+          "link": 290
         },
         {
           "name": "positive",
@@ -627,7 +563,7 @@
         {
           "name": "latent_image",
           "type": "LATENT",
-          "link": 51
+          "link": 287
         }
       ],
       "outputs": [
@@ -644,7 +580,19 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.3.40",
-        "Node name for S&R": "KSampler"
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "seed": true,
+            "steps": true,
+            "cfg": true,
+            "sampler_name": true,
+            "scheduler": true,
+            "denoise": true
+          },
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
       },
       "widgets_values": [
         42,
@@ -655,17 +603,71 @@
         "beta",
         1
       ]
+    },
+    {
+      "id": 103,
+      "type": "DyPE_FLUX",
+      "pos": [
+        20.50266316562786,
+        602.6579455354281
+      ],
+      "size": [
+        299.4675617615071,
+        256.11590904484103
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 284
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Patched Model",
+          "type": "MODEL",
+          "links": [
+            290
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-DyPE",
+        "ver": "c1df31f614dc096efb472b5e77194004284619d1",
+        "Node name for S&R": "DyPE_FLUX",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "width": true,
+            "height": true,
+            "method": true,
+            "enable_dype": true,
+            "dype_exponent": true,
+            "base_shift": true,
+            "max_shift": true
+          },
+          "version": "7.5.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        2048,
+        2048,
+        "vision_yarn",
+        true,
+        true,
+        2,
+        3,
+        0.5,
+        1.15
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
     }
   ],
   "links": [
-    [
-      51,
-      27,
-      0,
-      31,
-      3,
-      "LATENT"
-    ],
     [
       52,
       31,
@@ -691,22 +693,6 @@
       "CONDITIONING"
     ],
     [
-      71,
-      52,
-      0,
-      53,
-      0,
-      "MODEL"
-    ],
-    [
-      73,
-      53,
-      0,
-      31,
-      0,
-      "MODEL"
-    ],
-    [
       77,
       39,
       0,
@@ -721,14 +707,6 @@
       8,
       1,
       "VAE"
-    ],
-    [
-      91,
-      55,
-      0,
-      9,
-      0,
-      "IMAGE"
     ],
     [
       110,
@@ -755,18 +733,34 @@
       "LATENT"
     ],
     [
-      118,
+      284,
       38,
       0,
-      68,
+      103,
       0,
       "MODEL"
     ],
     [
-      119,
-      68,
+      287,
+      27,
       0,
-      52,
+      31,
+      3,
+      "LATENT"
+    ],
+    [
+      288,
+      55,
+      0,
+      104,
+      0,
+      "IMAGE"
+    ],
+    [
+      290,
+      103,
+      0,
+      31,
       0,
       "MODEL"
     ]
@@ -815,10 +809,10 @@
       "id": 5,
       "title": "Model patch",
       "bounding": [
-        -7.575982245696814,
-        506.15777888556613,
-        357.2928781597926,
-        546.8190068170823
+        -10,
+        510,
+        362.2177444976961,
+        376.41863152562166
       ],
       "color": "#3f789e",
       "font_size": 24,
@@ -828,13 +822,13 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7627768444385601,
+      "scale": 0.6303940863128942,
       "offset": [
-        1067.6762292181238,
-        -14.895608507226342
+        1304.71126170316,
+        232.7053224672207
       ]
     },
-    "frontendVersion": "1.28.7",
+    "frontendVersion": "1.30.6",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
