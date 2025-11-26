@@ -54,6 +54,11 @@ This node provides a seamless, "plug-and-play" integration of DyPE into any FLUX
 <img alt="Node" width="70%" src="https://github.com/user-attachments/assets/ef900ba2-e019-496a-89f6-abd92c857029" />
 </div>
 
+## Example output
+
+<div align="center">
+<img alt="Example dype" src="https://github.com/user-attachments/assets/f85861fd-4d2f-4b57-8058-26881600b7ca" />
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
